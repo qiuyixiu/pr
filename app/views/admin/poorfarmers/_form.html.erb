@@ -1,0 +1,35 @@
+<%= simple_form_for [:admin, @poorfarmer] do |f| %>
+
+  <div class="group">
+    <%= f.input :title, :label => "户主" %>
+  </div>
+
+  <% if @poorfarmer.image.present? %>
+   <span>目前图片</span>
+
+   <%= image_tag(@poorfarmer.image.thumb.url) %>
+  <% end %>
+
+  <div class="group">
+    <%= f.input :image, as: :file %>
+  </div>
+
+  <div class="group">
+    <%= f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } }, :label => "内容" %>
+  </div>
+
+  <div class="group">
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Category") %>
+  </div>
+
+  <div class="group">
+    <%= f.input :quantity, :label => "家庭人口" %>
+  </div>
+
+  <div class="group">
+    <%= f.input :helper, :label => "帮扶责任人" %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>

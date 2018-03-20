@@ -1,0 +1,65 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ .container .jumbotron{
+   padding-bottom: 10px;//内部的底部边距，这样按钮不会很靠近底部了
+   margin-bottom: 10px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+   border-radius: 0 !important;//圆角为0
+ }
+
+
+/*  --- 大图高度 和 滚动按钮 ---  */
+.fade-carousel {                                      //滚动大图的相框高，原为300
+    position: relative;
+    height: 680px;
+}
+.fade-carousel .carousel-inner .item {                //图片截取的宽度，这里与相框高度一致，原为300
+    height: 680px;
+}
+.fade-carousel .carousel-indicators > li {            //滚动按钮的设置
+    width: 5px;
+    height: 5px;
+    margin: 0 2px;
+    background-color: blue;
+    opacity: 0.5;
+}
+.fade-carousel .carousel-indicators > li.active {     //当前滚动按钮的设置
+    width: 40px;
+    height: 5px;
+    opacity: 0.8;
+}
+
+/*  --- 遮罩滤镜层 ---  */
+.overlay {                                            //遮罩滤镜层，把图片调暗，突出文案内容
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;                                       //元素堆叠等级2，将显示在最中层
+    background-color: #080d15;
+    opacity: 0;
+}
+
+/*  --- 图片 ---  */
+
+
+ .fade-carousel .slides .slide-1,
+ .fade-carousel .slides .slide-2,
+ .fade-carousel .slides .slide-3 {
+  height: 680px;                                      //原为300
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+/*  --- 响应式设置 ---  */
+@media screen and (min-width: 980px){
+
+}
+@media screen and (max-width: 640px){
+
+}
+@media screen and (max-width: 640px){
+
+}

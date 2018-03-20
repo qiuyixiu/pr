@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <br><br><br>
+    <div class="col-md-10 text-center">
+      <h3> 贫困户列表 </h3>
+    </div>
+    <div class="col-md-10">
+      <div class="pull-right" style="padding-bottom: 20px;">
+        <%= link_to("新增贫困户", new_admin_poorfarmer_path, class: "btn btn-info btn-sm") %>
+      </div>
+      <table class="table table-hover  table-responsive">
+        <thead class="text-center">
+          <tr>
+            <th>序号</th>
+            <th width="220">照片</th>
+            <th>贫困户属性</th>
+            <th>户主</th>
+            <th>家庭人数</th>
+            <th>帮扶责任人</th>
+            <th width="100">操作选项</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @poorfarmers.each do |poorfarmer| %>
+            <tr>
+              <td>
+                <%= poorfarmer.id %>
+              </td>
+              <td>
+                <%= link_to poorfarmer_path(poorfarmer) do %>
+                  <% if poorfarmer.image.present? %>
+                    <%= image_tag(poorfarmer.image.thumb.url, class: "thumbnail") %>
+                  <% else %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <%= poorfarmer.category.try(:name) %>
+              </td>
+              <td>
+                <%= poorfarmer.title %>
+              </td>
+              <td>
+                <%= poorfarmer.quantity %>
+              </td>
+              <td>
+                <%= poorfarmer.helper %>
+              </td>
+              <td>
+                <%= link_to("Edit", edit_admin_poorfarmer_path(poorfarmer)) %>
+                <br/>
+                <%= link_to("Destroy", admin_poorfarmer_path(poorfarmer), :method => :delete, :data => { :confirm => "Are you sure?"}) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @poorfarmers %>
+    </div>
+  </div>
+</div>

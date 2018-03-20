@@ -1,0 +1,60 @@
+<br><br><br>
+<div class="row">
+
+    <!-- <ul class="nav nav-tabs">
+      <div class="col-md-3 text-center">
+        <%= link_to  poorfarmers_path do %>
+        <img src='<%= image_url '' %>'>
+        <br>
+        <%= link_to "所有贫困户", poorfarmers_path %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to  poorfarmers_path(:category => "一般贫困户" ) do %>
+        <img src='<%= image_url '' %>'>
+        <br>
+        <%= link_to "一般贫困户", poorfarmers_path(:category => "一般贫困户" ) %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to  poorfarmers_path(:category => "低保户" ) do %>
+        <img src='<%= image_url '' %>'>
+        <br>
+        <%= link_to "低保户", poorfarmers_path(:category => "低保户" ) %>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-center">
+        <%= link_to  poorfarmers_path(:category => "五保户") do %>
+        <img src='<%= image_url '' %>'>
+        <br>
+        <%= link_to "五保户", poorfarmers_path(:category => "五保户" ) %>
+        <% end %>
+      </div>
+    </ul> -->
+
+
+</div>
+<div class="container">
+  <div class="row">
+    <% @poorfarmers.each do |poorfarmer| %>
+      <div class="col-xs-6 col-md-3">
+        <%= link_to poorfarmer_path(poorfarmer) do %>
+          <% if poorfarmer.image.present? %>
+            <%= image_tag(poorfarmer.image.thumb.url, class: "thumbnail") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+          <% end %>
+        <% end %>
+        <div class="text-left">
+          <%= poorfarmer.title %>
+          <br>
+          <%= poorfarmer.category.try(:name) %>
+        </div>
+      </div>
+    <% end %>
+  
+  </div>
+</div>
+<div class="text-center">
+  <%= paginate @poorfarmers %>
+</div>

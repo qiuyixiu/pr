@@ -1,0 +1,2 @@
+module PoorfarmersHelper
+end
