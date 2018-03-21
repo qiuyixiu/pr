@@ -36,6 +36,10 @@
 </div>
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">贫困户</h3>
+      <hr>
+    </div>
     <% @poorfarmers.each do |poorfarmer| %>
       <div class="col-xs-6 col-md-3">
         <%= link_to poorfarmer_path(poorfarmer) do %>
@@ -52,7 +56,7 @@
         </div>
       </div>
     <% end %>
-  
+
   </div>
 </div>
 <div class="text-center">

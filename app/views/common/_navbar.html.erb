@@ -51,45 +51,37 @@
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-style" role="navigation">
   <div class="container">
-    <div class="col-md-4">
       <div class="navbar-header nav-container">
-        <!-- <img src="http://oon3erbcp.bkt.clouddn.com/%E6%97%8B%E8%BD%AC%E5%88%807.png"> -->
-        <a  href="/" class="navbar-brand ">下埔村精准扶贫精准脱贫工作网</a>
+        <a  href="/" class="navbar-brand "><img src='<%= image_url 'logo.png' %> '>下埔村精准扶贫精准脱贫工作网</a>
       </div>
-    </div>
-    
-    <div class="col-md-6">
+
     <!-- 菜单 -->
     <div class="navbar-collapse navbar-ex1-collapse collapse " aria-expanded="false">
       <ul class="nav navbar-nav">
-        <!-- <li>
-          <%= link_to("首页", href="/") %>
-        </li> -->
+        <li>
+          <%= link_to("新农村", villages_path) %>
+        </li>
         <li>
           <%= link_to("贫困户", poorfarmers_path) %>
         </li>
         <li>
-          <%= link_to("减贫成效", ) %>
+          <%= link_to("减贫成效", effects_path) %>
         </li>
         <li>
-          <%= link_to("精准帮扶", ) %>
+          <%= link_to("精准帮扶", aids_path) %>
         </li>
         <li>
-          <%= link_to("扶贫资金", ) %>
+          <%= link_to("扶贫资金", funds_path) %>
         </li>
         <li>
-          <%= link_to("精准识别", ) %>
+          <%= link_to("精准识别", judgments_path) %>
         </li>
         <li>
-          <%= link_to("文件政策", ) %>
+          <%= link_to("文件政策", policies_path) %>
         </li>
       </ul>
-      </div>
-    </div>
-      <div class="col-md-2">
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
-
           <li><%= link_to("注册", new_user_registration_path) %></li>
           <li><%= link_to(content_tag(:i, "登录", class: "fa fa-sign-in"), new_user_session_path) %></li>
         <% else %>
@@ -107,5 +99,4 @@
       </ul>
     </div>
     </div>
-  </div>
 </nav>

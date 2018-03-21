@@ -1,0 +1,30 @@
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">新农村建设</h3>
+    </div>
+    <br><br><br>
+<div class="col-md-10">
+    <table class="table table-hover table-responsive">
+      <tbody>
+        <% @villages.each do |village| %>
+          <tr>
+            <td>
+              <%= village.id %>
+            </td>
+            <td>
+              <%= link_to(village.title, village_path(village)) %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  </div>
+</div>
+<div class="text-center">
+  <%= paginate @villages %>
+</div>

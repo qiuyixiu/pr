@@ -10,16 +10,18 @@
     </div>
     <div class="col-md-6">
       <h2> <%= @poorfarmer.title %> </h2>
-      <div style="height:100px;">
-        <p>
-          <%== @poorfarmer.description %>
-        </p>
-      </div>
       <div><%= @poorfarmer.category.name %> </div>
       <br>
       <div> 家庭人数 : <%= @poorfarmer.quantity %> </div>
       <br>
       <div> 帮扶责任人 : <%= @poorfarmer.helper %> </div>
+      <hr>
+      <div >
+        <p>
+          <%== @poorfarmer.description %>
+        </p>
+      </div>
+
 
     </div>
   </div>

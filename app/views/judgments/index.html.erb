@@ -1,0 +1,30 @@
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">精准识别</h3>
+    </div>
+    <br><br><br>
+<div class="col-md-10">
+    <table class="table table-hover table-responsive">
+      <tbody>
+        <% @judgments.each do |judgment| %>
+          <tr>
+            <td>
+              <%= judgment.id %>
+            </td>
+            <td>
+              <%= link_to(judgment.title, judgment_path(judgment)) %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  </div>
+</div>
+<div class="text-center">
+  <%= paginate @judgments %>
+</div>

@@ -1,0 +1,30 @@
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">扶贫资金</h3>
+    </div>
+    <br><br><br>
+<div class="col-md-10">
+    <table class="table table-hover table-responsive">
+      <tbody>
+        <% @funds.each do |fund| %>
+          <tr>
+            <td>
+              <%= fund.id %>
+            </td>
+            <td>
+              <%= link_to(fund.title, fund_path(fund)) %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  </div>
+</div>
+<div class="text-center">
+  <%= paginate @funds %>
+</div>

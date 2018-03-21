@@ -1,0 +1,30 @@
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">精准帮扶</h3>
+    </div>
+    <br><br><br>
+<div class="col-md-10">
+    <table class="table table-hover table-responsive">
+      <tbody>
+        <% @policies.each do |policy| %>
+          <tr>
+            <td>
+              <%= policy.id %>
+            </td>
+            <td>
+              <%= link_to(policy.title, policy_path(policy)) %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  </div>
+</div>
+<div class="text-center">
+  <%= paginate @policies %>
+</div>

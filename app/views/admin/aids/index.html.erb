@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <br><br><br>
+    <div class="col-md-10 text-center">
+      <h3> 帮扶情况 </h3>
+    </div>
+    <div class="col-md-10">
+      <div class="pull-right" style="padding-bottom: 20px;">
+        <%= link_to("新增帮扶", new_admin_aid_path, class: "btn btn-info btn-sm") %>
+      </div>
+      <table class="table table-hover  table-responsive">
+        <thead class="text-center">
+          <tr>
+            <th>序号</th>
+            <th>帮扶名称</th>
+            <th width="100">操作选项</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @aids.each do |aid| %>
+            <tr>
+              <td>
+                <%= aid.id %>
+              </td>
+              <td>
+                <%= aid.title %>
+              </td>
+              <td>
+                <%= link_to("编辑", edit_admin_aid_path(aid)) %> |
+                <%= link_to("删除", admin_aid_path(aid), :method => :delete, :data => { :confirm => "Are you sure?"}) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @aids %>
+    </div>
+  </div>
+</div>
