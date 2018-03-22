@@ -34,6 +34,12 @@ class Admin::EffectsController < ApplicationController
     end
   end
 
+  def destroy
+    @effect = Effect.find(params[:id])
+    @effect.destroy
+    redirect_to admin_effects_path
+  end
+
   private
 
   def effect_params

@@ -34,6 +34,12 @@ class Admin::JudgmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @judgment = Judgment.find(params[:id])
+    @judgment.destroy
+    redirect_to admin_judgments_path
+  end
+
   private
 
   def judgment_params

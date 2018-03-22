@@ -18,6 +18,11 @@
     <%= f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } }, :label => "内容" %>
   </div>
 
+  <% if @poorfarmer.category_id.present? %>
+   <span>目前分类：</span>
+   <%= @poorfarmer.category.try(:name) %>
+  <% end %>
+  
   <div class="group">
     <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Category") %>
   </div>

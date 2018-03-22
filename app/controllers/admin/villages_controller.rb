@@ -34,6 +34,12 @@ class Admin::VillagesController < ApplicationController
     end
   end
 
+  def destroy
+    @village = Village.find(params[:id])
+    @village.destroy
+    redirect_to admin_villages_path
+  end
+
   private
 
   def village_params

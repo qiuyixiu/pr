@@ -4,11 +4,12 @@
 
     <div class="col-md-12 text-center">
       <h2> <%= @village.title %> </h2>
-      <div style="height:100px;">
+      <div >
         <p>
           <%== @village.description %>
         </p>
       </div>
+      <%= link_to(content_tag(:i, "返回上一页", class: "fa fa-hand-o-left"), villages_path) %>
     </div>
   </div>
 </div>

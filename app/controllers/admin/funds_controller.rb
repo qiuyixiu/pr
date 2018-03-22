@@ -34,6 +34,12 @@ class Admin::FundsController < ApplicationController
     end
   end
 
+  def destroy
+    @fund = Fund.find(params[:id])
+    @fund.destroy
+    redirect_to admin_funds_path
+  end
+
   private
 
   def fund_params

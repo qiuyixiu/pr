@@ -34,6 +34,12 @@ class Admin::AidsController < ApplicationController
     end
   end
 
+  def destroy
+    @aid = Aid.find(params[:id])
+    @aid.destroy
+    redirect_to admin_aids_path
+  end
+
   private
 
   def aid_params

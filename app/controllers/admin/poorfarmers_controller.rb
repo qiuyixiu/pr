@@ -4,6 +4,8 @@ class Admin::PoorfarmersController < ApplicationController
 
   def index
     @poorfarmers = Poorfarmer.all.page(params[:page]).per(15)
+    @current_page = @poorfarmers.current_page
+
   end
 
   def new
@@ -39,6 +41,13 @@ class Admin::PoorfarmersController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @poorfarmer = Poorfarmer.find(params[:id])
+    @poorfarmer.destroy
+    redirect_to admin_poorfarmers_path
+  end
+
 
   private
 

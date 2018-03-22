@@ -1,3 +1,7 @@
+
+
+<link rel="stylesheet" href="bootstrap-table.css">
+
 <div class="container">
   <div class="row">
     <br><br><br>
@@ -8,9 +12,10 @@
       <div class="pull-right" style="padding-bottom: 20px;">
         <%= link_to("新增贫困户", new_admin_poorfarmer_path, class: "btn btn-info btn-sm") %>
       </div>
-      <table class="table table-hover  table-responsive">
+      <table data-toggle="table" class="table table-hover  table-responsive">
         <thead class="text-center">
           <tr>
+
             <th>序号</th>
             <th width="220">照片</th>
             <th>贫困户属性</th>
@@ -21,10 +26,10 @@
           </tr>
         </thead>
         <tbody>
-          <% @poorfarmers.each do |poorfarmer| %>
+          <% @poorfarmers.each_with_index do |poorfarmer, index| %>
             <tr>
               <td>
-                <%= poorfarmer.id %>
+                <%= (@current_page-1)*15+index+1 %>
               </td>
               <td>
                 <%= link_to poorfarmer_path(poorfarmer) do %>
@@ -54,6 +59,8 @@
             </tr>
           <% end %>
         </tbody>
+
+
       </table>
       <%= paginate @poorfarmers %>
     </div>

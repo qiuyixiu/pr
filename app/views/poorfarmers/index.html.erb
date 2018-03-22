@@ -1,45 +1,34 @@
-<br><br><br>
-<div class="row">
 
-    <!-- <ul class="nav nav-tabs">
-      <div class="col-md-3 text-center">
-        <%= link_to  poorfarmers_path do %>
-        <img src='<%= image_url '' %>'>
-        <br>
-        <%= link_to "所有贫困户", poorfarmers_path %>
-        <% end %>
-      </div>
-      <div class="col-md-3 text-center">
-        <%= link_to  poorfarmers_path(:category => "一般贫困户" ) do %>
-        <img src='<%= image_url '' %>'>
-        <br>
-        <%= link_to "一般贫困户", poorfarmers_path(:category => "一般贫困户" ) %>
-        <% end %>
-      </div>
-      <div class="col-md-3 text-center">
-        <%= link_to  poorfarmers_path(:category => "低保户" ) do %>
-        <img src='<%= image_url '' %>'>
-        <br>
-        <%= link_to "低保户", poorfarmers_path(:category => "低保户" ) %>
-        <% end %>
-      </div>
-      <div class="col-md-3 text-center">
-        <%= link_to  poorfarmers_path(:category => "五保户") do %>
-        <img src='<%= image_url '' %>'>
-        <br>
-        <%= link_to "五保户", poorfarmers_path(:category => "五保户" ) %>
-        <% end %>
-      </div>
-    </ul> -->
+<div class="container">
+  <div class="row">
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "所有贫困户", poorfarmers_path %></li>
+        <li><%= link_to "一般贫困户", poorfarmers_path(:category => "一般贫困户" ) %></li>
+        <li><%= link_to "低保户", poorfarmers_path(:category => "低保户" ) %></li>
+        <li><%= link_to "五保户", poorfarmers_path(:category => "五保户" ) %></li>
+      </ul>
+    </div>
+  </nav> -->
 
-
+    <div class="col-md-12 text-center">
+      <ul class="nav nav-tabs">
+        <li class="active"><%= link_to "所有贫困户", poorfarmers_path %></li>
+        <li><%= link_to "一般贫困户", poorfarmers_path(:category => "一般贫困户" ) %></li>
+        <li><%= link_to "低保户", poorfarmers_path(:category => "低保户" ) %></li>
+        <li><%= link_to "五保户", poorfarmers_path(:category => "五保户" ) %></li>
+      </ul>
+    </div>
+  </div>
+<br>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
       <h3 class="text-center">贫困户</h3>
       <hr>
-    </div>
+    </div> -->
     <% @poorfarmers.each do |poorfarmer| %>
       <div class="col-xs-6 col-md-3">
         <%= link_to poorfarmer_path(poorfarmer) do %>
